@@ -17,7 +17,9 @@
     <!-- Styles -->
     @livewireStyles
 </head>
-<body>
+<body x-data="{
+    oper: false,
+}">
     @include('layouts.includes.admin.navigation')
     @include('layouts.includes.admin.sidebar')
 
