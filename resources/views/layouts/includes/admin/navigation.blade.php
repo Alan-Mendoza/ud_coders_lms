@@ -1,16 +1,23 @@
-<nav class="fixed top-0 z-50 w-full bg-neutral-primary-soft border-b border-default">
+<nav class="fixed top-0 z-[60] w-full bg-white bg-neutral-primary-soft border-b border-default">
     <div class="px-3 py-3 lg:px-5 lg:pl-3">
         <div class="flex items-center justify-between">
         <div class="flex items-center justify-start rtl:justify-end">
-            <button x-on:click="open != open" data-drawer-target="top-bar-sidebar" data-drawer-toggle="top-bar-sidebar" aria-controls="top-bar-sidebar" type="button" class="sm:hidden text-heading bg-transparent box-border border border-transparent hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded-base text-sm p-2 focus:outline-none">
+            <div class="sm:hidden fixed top-3 left-3 z-[60] flex items-center gap-2">
+                <button x-on:click="open = !open" aria-controls="top-bar-sidebar" type="button" class="text-heading bg-white/80 box-border border border-transparent hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded-base text-sm p-2 focus:outline-none backdrop-blur">
                 <span class="sr-only">Open sidebar</span>
                 <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
     <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h10"/>
     </svg>
-            </button>
-            <a href="https://flowbite.com" class="flex ms-2 md:me-24">
-            <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 me-3" alt="FlowBite Logo" />
-            <span class="self-center text-lg font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+                </button>
+                <a href="{{ url('/') }}" class="flex items-center gap-2">
+                    <span class="sr-only">{{ config('app.name') }}</span>
+                    <x-application-mark class="block h-7 w-7" />
+                </a>
+            </div>
+            <a href="{{ url('/') }}" class="hidden sm:flex items-center gap-2 ms-2 md:me-24">
+                <span class="sr-only">{{ config('app.name') }}</span>
+                <x-application-mark class="block h-7 w-7 sm:hidden" />
+                <x-application-logo class="hidden h-7 w-auto sm:block" />
             </a>
         </div>
         <div class="flex items-center">

@@ -18,8 +18,8 @@
     @livewireStyles
 </head>
 <body x-data="{
-    oper: false,
-}">
+        open: false,
+    }" :class="{ 'overflow-hidden': open }" class="sm:overflow-auto">
     @include('layouts.includes.admin.navigation')
     @include('layouts.includes.admin.sidebar')
 
@@ -29,6 +29,7 @@
         </div>
     </div>
 
+    <div x-cloak x-on:click="open = false" x-show="open" x-transition.opacity class="bg-gray-900 bg-opacity-50 fixed inset-0 z-30 sm:hidden"></div>
     @stack('modals')
 
     @livewireScripts
